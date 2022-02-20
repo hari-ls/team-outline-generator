@@ -2,6 +2,8 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const { members, addMember } = require("./src/members");
+const createFile = require("./src/file");
+const createLayout = require("./src/layout");
 
 // initialise the array of questions
 const forEmployee = [
@@ -59,21 +61,21 @@ const forIntern = [
 
 const ask = (type, role) => {
   inquirer.prompt(type).then((inputs) => {
-    console.log(inputs);
     addMember(inputs, role);
+    console.log(inputs);
     if (inputs.continue === "Add an Engineer") {
       ask(forEngineer, "Engineer");
     } else if (inputs.continue === "Add an Intern") {
       ask(forIntern, "Intern");
     } else {
       console.log("Building now...");
+      createFile(createLayout(members));
     }
   });
 };
 
 const init = () => {
-  console.log("Program initialised");
-  console.log(members);
+  console.log("Let's generate an HTML layout for your team,");
   ask(forManger, "Manager");
 };
 
