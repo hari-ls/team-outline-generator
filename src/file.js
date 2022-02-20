@@ -1,3 +1,5 @@
+// helper module to create file with the generated layout
+// import dependencies
 const fs = require("fs");
 const path = require("path");
 

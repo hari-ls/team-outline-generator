@@ -1,23 +1,4 @@
-// // const { members } = require("./members");
-
-// const members = [
-//   {
-//     name: "Harshit Shah",
-//     position: "Manager",
-//     details: { id: "1", email: "hari@logicsync.com.au", officeNumber: "1" },
-//   },
-//   {
-//     name: "John Doe",
-//     position: "Engineer",
-//     details: { id: "2", email: "john@logicsync.com.au", github: "git-john" },
-//   },
-//   {
-//     name: "Jade Black",
-//     position: "Intern",
-//     details: { id: "3", email: "jade@logicsync.com.au", school: "Uni SA" },
-//   },
-// ];
-
+// helper module to generate layout
 const memberCard = (obj) => {
   let { name, position } = obj;
   // check member type and initiliase layout sections
@@ -81,6 +62,7 @@ const memberCard = (obj) => {
   }
 };
 
+// return the layout
 const createLayout = (arr) => `<!DOCTYPE html>
 <html lang="en">
 
@@ -109,7 +91,5 @@ const createLayout = (arr) => `<!DOCTYPE html>
 </body>
 
 </html>`;
-
-// console.log(createLayout(members));
 
 module.exports = createLayout;

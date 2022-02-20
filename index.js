@@ -62,7 +62,6 @@ const forIntern = [
 const ask = (type, role) => {
   inquirer.prompt(type).then((inputs) => {
     addMember(inputs, role);
-    console.log(inputs);
     if (inputs.continue === "Add an Engineer") {
       ask(forEngineer, "Engineer");
     } else if (inputs.continue === "Add an Intern") {
@@ -75,7 +74,9 @@ const ask = (type, role) => {
 };
 
 const init = () => {
-  console.log("Let's generate an HTML layout for your team,");
+  console.log(
+    "\u001b[32mLet's generate an HTML layout for your team. Follow the prompts to enter the required information.\nFirst, let's add a Manager\x1b[0m"
+  );
   ask(forManger, "Manager");
 };
 

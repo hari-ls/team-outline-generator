@@ -1,3 +1,5 @@
+// helper module to create members data from the inputs
+// import dependencies
 const Manager = require("../lib/manager");
 const Engineer = require("../lib/engineer");
 const Intern = require("../lib/intern");
