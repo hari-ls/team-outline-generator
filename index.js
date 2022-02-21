@@ -16,11 +16,25 @@ const forEmployee = [
     type: "input",
     name: "id",
     message: "Enter the ID:",
+    validate(num) {
+      const pass = num.match(/\d/g);
+      if (pass) {
+        return true;
+      }
+      return "Please enter a valid number";
+    },
   },
   {
     type: "input",
     name: "email",
     message: "Enter the Email address:",
+    validate(email) {
+      const pass = email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
+      if (pass) {
+        return true;
+      }
+      return "Please enter a valid email address";
+    },
   },
 ];
 const selection = [
@@ -63,20 +77,26 @@ const ask = (type, role) => {
   inquirer.prompt(type).then((inputs) => {
     addMember(inputs, role);
     if (inputs.continue === "Add an Engineer") {
+      console.log("\u001b[35mNow, let's add an Engineer\x1b[0m");
       ask(forEngineer, "Engineer");
     } else if (inputs.continue === "Add an Intern") {
+      console.log("\u001b[35mNow, let's add an Intern\x1b[0m");
       ask(forIntern, "Intern");
-    } else {
-      console.log("Building now...");
+    } else if (inputs.continue === "Finish building my Team") {
+      console.log("\u001b[34mGenerating now...\x1b[0m");
       createFile(createLayout(members));
+      console.log(
+        "\u001b[32mHTML file generated. You'll be able to find it here:\x1b[0m \u001b[33m./dist/roster.html\x1b[0m"
+      );
     }
   });
 };
 
 const init = () => {
   console.log(
-    "\u001b[32mLet's generate an HTML layout for your team. Follow the prompts to enter the required information.\nFirst, let's add a Manager\x1b[0m"
+    "\u001b[32mLet's generate an HTML layout for your team. Follow the prompts to enter the required information.\x1b[0m\n\u001b[35mFirst, let's add a Manager\x1b[0m"
   );
+  // start by asking for inputs of manager
   ask(forManger, "Manager");
 };
 

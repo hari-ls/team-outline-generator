@@ -4,7 +4,6 @@ const memberCard = (obj) => {
   // check member type and initiliase layout sections
   if (position === "Manager") {
     let { id, email, officeNumber } = obj.details;
-    console.log(name, position, id, email, officeNumber);
     return `    
             <div class="basis-3/12 p-4">
                 <div class="rounded shadow-xl ring-1 ring-gray-900/5">
@@ -23,7 +22,6 @@ const memberCard = (obj) => {
             </div>`;
   } else if (position === "Engineer") {
     let { id, email, github } = obj.details;
-    console.log(name, position, id, email, github);
     return `
             <div class="basis-3/12 p-4">
                 <div class="rounded shadow-xl ring-1 ring-gray-900/5">
@@ -42,7 +40,6 @@ const memberCard = (obj) => {
             </div>`;
   } else if (position === "Intern") {
     let { id, email, school } = obj.details;
-    console.log(name, position, id, email, school);
     return `
             <div class="basis-3/12 p-4">
                 <div class="rounded shadow-xl ring-1 ring-gray-900/5">

@@ -9,16 +9,17 @@ const createFile = (data) => {
   const dist = path.resolve(__dirname, "../dist");
   // check if the directory exists, if note create one
   if (!fs.existsSync(dist)) {
-    console.log("The path doesn't exist.");
+    console.info(
+      "The path doesn't already exist, so creating the dist directory"
+    );
     fs.mkdir(`${root}/dist`, (err) => {
       if (err) throw err;
     });
   }
   // create file with the data supplied
-  fs.writeFile(`${dist}/index.html`, data, (err) => {
+  fs.writeFile(`${dist}/roster.html`, data, (err) => {
     if (err) throw err;
   });
 };
 
-// createFile("<p>Hello World!</p>");
 module.exports = createFile;

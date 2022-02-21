@@ -54,7 +54,7 @@ const addMember = (obj, type) => {
   }
   // add member to array based on initliased data
   members.push(data);
-  console.log(members);
+  console.log(`\u001b[32m✓ ${type} added to team roster\x1b[0m`);
 };
 
 module.exports = { members, addMember };
